@@ -71,9 +71,9 @@ python -m bot.cli --symbol ETHUSDT --side BUY --type MARKET --quantity 0.05 --lo
  ## How to Run the UI Dashboard (Bonus Requirement)
 **To launch the interactive web interface, run the following command from the project root:**
 
-'''bash
+```bash
 streamlit run dashbord.py
-'''
+```
 This will open a local web server (usually at http://localhost:8501) where you can view live market data, interactive price action charts, and submit validated Futures orders directly through the GUI
 
 Every run prints:
