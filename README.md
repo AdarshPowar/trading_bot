@@ -68,8 +68,8 @@ python -m bot.cli --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.01 --pr
 ```bash
 python -m bot.cli --symbol ETHUSDT --side BUY --type MARKET --quantity 0.05 --log-level DEBUG
 ```
- ##How to Run the UI Dashboard (Bonus Requirement)
-To launch the interactive web interface, run the following command from the project root:
+ ## How to Run the UI Dashboard (Bonus Requirement)
+**To launch the interactive web interface, run the following command from the project root:**
 
 '''bash
 streamlit run dashbord.py
