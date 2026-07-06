@@ -10,13 +10,15 @@ error handling.
 trading_bot/
   bot/
     __init__.py
-    client.py          # Binance client wrapper (all API calls live here)
-    orders.py           # Order orchestration: validate -> submit -> report
+    client.py            # Binance client wrapper (all API calls live here)
+    orders.py            # Order orchestration: validate -> submit -> report
     validators.py        # Input validation / normalization
     logging_config.py    # Logging setup (console + rotating file)
     cli.py               # CLI entry point (argparse)
+  dashbord.py            # Streamlit UI Dashboard (Bonus Implementation)
+  .env                   # API Credentials (User created)
   logs/
-    trading_bot.log       # Generated at runtime
+    trading_bot.log      # Generated at runtime (Includes Market & Limit examples)
   README.md
   requirements.txt
 ```
@@ -66,6 +68,13 @@ python -m bot.cli --symbol BTCUSDT --side SELL --type LIMIT --quantity 0.01 --pr
 ```bash
 python -m bot.cli --symbol ETHUSDT --side BUY --type MARKET --quantity 0.05 --log-level DEBUG
 ```
+ ##How to Run the UI Dashboard (Bonus Requirement)
+To launch the interactive web interface, run the following command from the project root:
+
+'''bash
+streamlit run dashbord.py
+'''
+This will open a local web server (usually at http://localhost:8501) where you can view live market data, interactive price action charts, and submit validated Futures orders directly through the GUI
 
 Every run prints:
 - an order request summary
@@ -99,9 +108,4 @@ All requests, responses, and errors are also written to
 - Network/connectivity failures
 - Any unexpected exception (caught and logged rather than crashing the CLI)
 
-## Bonus Ideas (not yet implemented)
 
-The suggested project structure leaves room to add a Stop-Limit/OCO/TWAP
-order type in `orders.py` + `client.py`, or a richer interactive CLI
-(e.g. via `Typer`/`Rich` prompts) without touching the validation or
-client layers.
